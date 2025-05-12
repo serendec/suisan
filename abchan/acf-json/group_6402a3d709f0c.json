@@ -1,0 +1,67 @@
+{
+    "key": "group_6402a3d709f0c",
+    "title": "更新情報",
+    "fields": [
+        {
+            "key": "field_6402a3d7ddb63",
+            "label": "リンク",
+            "name": "リンク",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "一覧でのリンクが詳細ページではなく、入力したURLへの直リンクになります。",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6402a4c1ddb64",
+            "label": "別ウィンドウで開く",
+            "name": "別ウィンドウで開く",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "update"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "featured_image"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1677895115
+}

@@ -1,0 +1,239 @@
+{
+    "key": "group_63e8bfff4ae3c",
+    "title": "水産資源評価（タイプ1）",
+    "fields": [
+        {
+            "key": "field_63e8c00287cca",
+            "label": "魚種データ",
+            "name": "魚種データ",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 1,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "年度を追加",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_63e8c114017e7",
+                    "label": "年度",
+                    "name": "年度",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": "年度",
+                    "parent_repeater": "field_63e8c00287cca"
+                },
+                {
+                    "key": "field_63e8cbf84ce61",
+                    "label": "データ",
+                    "name": "データ",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "系群を追加",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_63e8cc527bc9e",
+                            "label": "系群",
+                            "name": "系群",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_63e8cbf84ce61"
+                        },
+                        {
+                            "key": "field_63f02c6a31718",
+                            "label": "資料",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "accordion",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "open": 0,
+                            "multi_expand": 0,
+                            "endpoint": 0,
+                            "parent_repeater": "field_63e8cbf84ce61"
+                        },
+                        {
+                            "key": "field_63f01b887a1a0",
+                            "label": "資料",
+                            "name": "資料",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "row",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "資料を追加",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_63e8c148017e8",
+                                    "label": "ファイル",
+                                    "name": "ファイル",
+                                    "aria-label": "",
+                                    "type": "file",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_size": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "parent_repeater": "field_63f01b887a1a0"
+                                },
+                                {
+                                    "key": "field_63f01b9d7a1a1",
+                                    "label": "資料名",
+                                    "name": "資料名",
+                                    "aria-label": "",
+                                    "type": "button_group",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "簡易版": "簡易版",
+                                        "ダイジェスト版": "ダイジェスト版",
+                                        "詳細版": "詳細版",
+                                        "その他資料名": "その他資料名"
+                                    },
+                                    "default_value": "",
+                                    "return_format": "value",
+                                    "allow_null": 0,
+                                    "layout": "horizontal",
+                                    "parent_repeater": "field_63f01b887a1a0"
+                                },
+                                {
+                                    "key": "field_63f01c3c7a1a3",
+                                    "label": "その他資料名",
+                                    "name": "その他資料名",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_63f01b9d7a1a1",
+                                                "operator": "==",
+                                                "value": "その他資料名"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_63f01b887a1a0"
+                                }
+                            ],
+                            "parent_repeater": "field_63e8cbf84ce61"
+                        }
+                    ],
+                    "parent_repeater": "field_63e8c00287cca"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "hyouka-type1"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "permalink",
+        "the_content"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1677134207
+}
