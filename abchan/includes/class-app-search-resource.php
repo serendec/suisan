@@ -131,6 +131,12 @@ final class App_Search_Resource
      */
     public function searchFromCsv(array $conditions = []): array
     {
-        return $this->searchService->searchFromCsv(self::getCsvPathByField($this->csvField), $this->csvEncode, $conditions);
+        $csvPath = self::getCsvPathByField($this->csvField);
+
+        if (empty($csvPath)) {
+            return [];
+        }
+
+        return $this->searchService->searchFromCsv($csvPath, $this->csvEncode, $conditions);
     }
 }

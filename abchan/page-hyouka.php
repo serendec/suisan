@@ -35,6 +35,7 @@
 			<div class="l-inner pb-0">
 				<p>各魚種・系群毎の資源評価は毎年１回行っております。本ホームページはこの評価結果を公表しているものです。</p>
 				<p>このため、次回（翌年）の資源評価までの間の海洋環境の変動などにより、資源状況が変化し、評価結果と実態が異なることもありますので、御利用にあたってはその点を御了解の上、御利用願います。</p>
+				<p>年度途中に開催される資源評価会議の資料については<a href="https://www.fra.go.jp/shigen/fisheries_resources/meeting/stock_assessment_meeting/index.html#sc2025" target="_blank">こちら</a> ( 水産研究・教育機構 水産資源研究所 資源評価関連会議情報 ) に掲載されています。</p>
 				<p>なお、海洋環境の変動の影響を受けやすいマサバ、マイワシなどの浮魚類やスルメイカなどの重要資源については、水産研究所が漁期前や漁期中の適当な時期に直近の漁獲情報等を踏まえた長期漁海況予報も行っておりますので、これらの情報も御利用下さい。</p>
 
 				<?php /*
@@ -98,7 +99,12 @@
 
 					<li>
 						<a href="<?php echo esc_url(home_url('/')); ?>hyouka/documents/" class="js-waves">
-						水産資源評価関連資料<span class="c-sq-btn"></span>
+							水産資源評価関連資料<span class="c-sq-btn"></span>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.fra.go.jp/shigen/fisheries_resources/meeting/stock_assessment_meeting/index.html#sc2025" target="_blank" class="js-waves">
+							本年度の資源評価関連会議情報<span class="c-sq-btn"></span>
 						</a>
 					</li>
 				</ul>

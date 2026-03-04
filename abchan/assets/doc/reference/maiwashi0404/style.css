@@ -1,0 +1,125 @@
+body
+    {
+    text-align : center;
+    }
+
+div.pan_page 
+    {
+    width : 640px ;
+    font-family: "MS PGothic", Osaka, "MS Gothic", Gothic, sans-serif;
+    font-size: 12pt;
+    text-align: left;
+
+    }
+
+div.main_title
+    {
+    font-size: 26pt;
+    text-align: center;
+    margin-bottom : 20pt;
+    }
+
+div.sub_title
+    {
+    font-size: 16pt;
+    text-align: center;
+    margin-bottom : 16pt;
+    }
+
+div.page_title
+    {
+    font-size: 18pt;
+    text-align: center;
+    margin-top : 12pt;
+    margin-bottom : 12pt;
+    }
+
+span.maegaki
+    {
+    padding: 6px 20px 6px 20px;
+    background-image: url(./maegaki.png);
+    }
+
+span.goku
+    {
+    padding: 2px 20px 2px 20px;
+    background-image: url(./goku.png);
+    }
+
+span.page_title
+    {
+    padding: 0px 10 px 0px 10px;
+    border-top-width: 2pt;
+    border-right-width: 0pt;
+    border-bottom-width: 2pt;
+    border-left-width: 0pt;
+    border-style: solid;
+    border-color: #8FCDF3;
+    }
+
+.mokuji
+    {
+    font-size: 10pt;
+    text-align : left;
+    }
+
+#leftside
+    {
+    float: left;
+    width : 240px;
+    border-style : none;
+    }
+
+#rightside
+    {
+    float: left ;
+    width: 380px ;
+    border-style : none;
+    }
+
+div.org
+    {
+    text-align : center;
+    }
+
+div.nav_btn
+    {
+    text-align : center;
+     }
+
+img 
+   {
+   border-style: none;
+   }
+
+
+p
+   {
+   text-indent: 1em;
+   }
+
+
+.center
+  {
+  text-align: center;
+  }
+
+dd
+    {
+    margin-bottom : 12pt;
+    }
+
+
+div.main_text
+    {
+    margin-top:    10px;
+    margin-bottom: 10px;
+    padding-left:  10px;
+    padding-right: 10px;
+    border-width: 1pt;
+    border-style: solid; 
+    border-color: #8FCDF3;
+    background-color: #EFF7FD;
+    }
+
+

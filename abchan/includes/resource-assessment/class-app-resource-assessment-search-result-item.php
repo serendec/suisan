@@ -47,6 +47,11 @@ final class App_Resource_Assessment_Search_Result_Item
     private ?string $level;
 
     /**
+     * @var array
+     */
+    private array $additionalDocuments = [];
+
+    /**
      * @param string|null $type
      * @param int|null $year
      * @param string|null $category
@@ -66,7 +71,8 @@ final class App_Resource_Assessment_Search_Result_Item
         ?string $summaryDocument,
         ?string $detailedDocument,
         ?string $trends,
-        ?string $level
+        ?string $level,
+        array $additionalDocuments = []
     )
     {
         $this->type = $type;
@@ -78,6 +84,7 @@ final class App_Resource_Assessment_Search_Result_Item
         $this->detailedDocument = $detailedDocument;
         $this->trends = $trends;
         $this->level = $level;
+        $this->additionalDocuments = $additionalDocuments;
     }
 
     /**
@@ -86,16 +93,55 @@ final class App_Resource_Assessment_Search_Result_Item
      */
     public static function createFromCsv(array $item): self
     {
+        $type = $item[0] ?? null;
+        $year = intval($item[1] ?? null);
+        $category = $item[2] ?? null;
+        $image = $item[3] ?? null;
+        $lightDocument = $item[4] ?? null;
+        $summaryDocument = $item[5] ?? null;
+        $detailedDocument = $item[6] ?? null;
+        $trends = $item[7] ?? null;
+        $level = $item[8] ?? null;
+
+        // 9列目以降を2列ずつ（ID, タイトル）でパース
+        $additionalDocuments = [];
+        $count = count($item);
+        for ($i = 9; $i < $count; $i += 2) {
+            $rawId = $item[$i] ?? null;
+            $rawTitle = $item[$i + 1] ?? null;
+
+            $attachmentId = null;
+            if (!is_null($rawId)) {
+                $rawIdStr = trim(strval($rawId));
+                if ($rawIdStr !== '' && is_numeric($rawIdStr)) {
+                    $attachmentId = intval($rawIdStr);
+                }
+            }
+
+            if ($attachmentId && $attachmentId > 0) {
+                $title = is_null($rawTitle) ? null : trim(strval($rawTitle));
+                if ($title === '') {
+                    $title = null;
+                }
+
+                $additionalDocuments[] = [
+                    'id' => $attachmentId,
+                    'title' => $title,
+                ];
+            }
+        }
+
         return new self(
-            $item[0] ?? null,
-            intval($item[1] ?? null),
-            $item[2] ?? null,
-            $item[3] ?? null,
-            $item[4] ?? null,
-            $item[5] ?? null,
-                $item[6] ?? null,
-                $item[7] ?? null,
-            $item[8] ?? null
+            $type,
+            $year,
+            $category,
+            $image,
+            $lightDocument,
+            $summaryDocument,
+            $detailedDocument,
+            $trends,
+            $level,
+            $additionalDocuments
         );
     }
 
@@ -243,6 +289,41 @@ final class App_Resource_Assessment_Search_Result_Item
     {
         $meta = wp_get_attachment_metadata($id);
         return $meta['filesize'] ?? null;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAdditionalDocuments(): array
+    {
+        return $this->additionalDocuments;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAdditionalDocumentsMeta(): array
+    {
+        $result = [];
+
+        foreach ($this->additionalDocuments as $doc) {
+            $id = $doc['id'] ?? null;
+            if (!is_int($id) || $id <= 0) {
+                continue;
+            }
+
+            $url = wp_get_attachment_url($id) ?: null;
+            $size = $this->getAttachmentFileSize($id);
+
+            $result[] = [
+                'id' => $id,
+                'title' => $doc['title'] ?? null,
+                'url' => $url,
+                'size' => $size,
+            ];
+        }
+
+        return $result;
     }
 
     /**

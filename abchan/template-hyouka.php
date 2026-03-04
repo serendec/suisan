@@ -218,7 +218,7 @@ if(empty($post_ids)){
 			if ($query->have_posts()) :
 			?>
 				<h3 id="s3" class="c-h3 mb-3">令和元年度より対象となった魚種、海域</h3>
-
+				<p class="mb-2"><small>※★印のイラストは、女子美術大学の著作物です。</small></p>
 				<div class="js-scrollable p-table-list-wrap mb-5">
 					<table class="p-table-list mb-5">
 						<thead>

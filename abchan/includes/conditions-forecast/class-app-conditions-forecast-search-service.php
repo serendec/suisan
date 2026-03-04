@@ -23,6 +23,11 @@ final class App_Conditions_Forecast_Search_Service implements App_Search_Service
         foreach ($reader->readLine() as $index => $line) {
             if ($index === 0) continue;
 
+            // fgetcsv() が false を返す場合（空行やエラー）をスキップ
+            if (!is_array($line)) {
+                continue;
+            }
+
             if (self::isMatchesConditions($conditions, $line)) {
                 $results[] = App_Conditions_Forecast_Search_Result_Item::createFromCsv($line);
             }

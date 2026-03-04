@@ -21,6 +21,8 @@
 					<li><a href="<?php echo esc_url(home_url('/')); ?>about/taisei/">水産資源評価の実施体制と進め方</a></li>
 					<li><a href="<?php echo esc_url(home_url('/')); ?>about/references_list/">水産資源評価のための基礎資料</a></li>
 					<li><a href="<?php echo esc_url(home_url('/')); ?>about/yougo/">用語集</a></li>
+					<li><a href="<?php echo esc_url(home_url('/')); ?>about/types/">資源評価に係る資料の種類</a></li>
+					<li><a href="<?php echo esc_url(home_url('/')); ?>about/movie/">動画で見る資源評価</a></li>
 				</ul>
 
 				<li class="p-link-bar"><a href="/hyouka/">水産資源評価結果<span class="c-sq-btn"></span></a></li>
@@ -56,6 +58,7 @@
 
 					<li><a href="<?php echo esc_url(home_url('/')); ?>hyouka/backnumber/">過去の魚種別資源評価</a></li>
 					<li><a href="<?php echo esc_url(home_url('/')); ?>hyouka/datatable/">資源評価報告書のデータ表</a></li>
+					<li><a href="https://www.fra.go.jp/shigen/fisheries_resources/meeting/stock_assessment_meeting/index.html#sc2025" target="_blank">本年度の資源評価関連会議情報</a></li>
 				</ul>
 
 				<li class="p-link-bar"><a href="<?php echo esc_url(home_url('/')); ?>gk/">漁海況予報<span class="c-sq-btn"></span></a></li>
@@ -83,7 +86,13 @@
 					</li>
 				</ul>
 
-				<li class="p-link-bar"><a href="<?php echo esc_url(home_url('/')); ?>kouseidoka/">資源量推定等高精度化推進事業<span class="c-sq-btn"></span></a></li>
+				<li class="p-link-bar"><a href="<?php echo esc_url(home_url('/')); ?>kanrenjigyou/">関連事業<span class="c-sq-btn"></span></a></li>
+				<ul class="p-list p-list--arrow p-3">
+					<li><a href="<?php echo esc_url(home_url('/')); ?>kanrenjigyou/kouseidoka_2024/">資源量推定等高精度化推進事業（2024）</a></li>
+					<li><a href="<?php echo esc_url(home_url('/')); ?>kanrenjigyou/kouseidoka_2016-2023/">資源量推定等高精度化推進事業（2016~2023）</a></li>
+					<li><a href="<?php echo esc_url(home_url('/')); ?>kanrenjigyou/hendouyouin/">資源変動要因分析調査事業（2011~2015）</a></li>
+					<li><a href="<?php echo esc_url(home_url('/')); ?>kanrenjigyou/doukouyouin/">資源動向要因分析調査（2006~2010）</a></li>
+				</ul>
 
 				<li class="p-link-bar"><a href="<?php echo esc_url(home_url('/')); ?>contact/">お問い合わせ<span class="c-sq-btn"></span></a></li>
 

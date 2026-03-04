@@ -518,23 +518,32 @@ add_filter( 'pre_get_posts', function( WP_Query $query ) {
 /**
  * API関係脆弱性の対応
  */
-// author情報でユーザー名を特定できないようにする
-function theme_slug_redirect_author_archive() {
-    if (is_author() ) {
-        wp_redirect( home_url());
-        exit;
-    }
-}
-add_action( 'template_redirect', 'theme_slug_redirect_author_archive' );
+// Authorアーカイブを完全に無効化し、
+// ID・ユーザー名の露出を防止する
+add_filter('redirect_canonical', function ($redirect_url) {
+	if (is_author() || (isset($_GET['author']) && is_numeric($_GET['author']))) {
+		return false;
+	}
+	return $redirect_url;
+});
+
+add_action('template_redirect', function () {
+	if (is_author()) {
+		global $wp_query;
+		$wp_query->set_404();
+		status_header(404);
+		nocache_headers();
+	}
+});
 
 // wp-json/wp/v2/usersリクエストへの対策
 function my_filter_rest_endpoints( $endpoints ) {
     if ( isset( $endpoints['/wp/v2/users'] ) ) {
         unset( $endpoints['/wp/v2/users'] );
     }
-    if ( isset( $endpoints['/wp/v2/users/(?P<id>\d+)'] ) ) {
-        unset( $endpoints['/wp/v2/users/(?P<id>\d+)'] );
+    if ( isset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] ) ) {
+        unset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] );
     }
     return $endpoints;
-}
+  }
 add_filter( 'rest_endpoints', 'my_filter_rest_endpoints', 10, 1 );

@@ -34,9 +34,9 @@ get_header(); ?>
 							<div class="c-select c-input--m">
 								<select name="search[year]">
 									<option value="">- 選択 -</option>
-                                    <?php foreach ($facets->getYears() as $year): ?>
+									<?php foreach ($facets->getYears() as $year): ?>
 										<option value="<?php echo $year; ?>" <?php selected($_GET['search']['year'] ?? null, $year); ?>><?php echo $year; ?></option>
-                                    <?php endforeach; ?>
+									<?php endforeach; ?>
 								</select>
 							</div>
 						</div>
@@ -83,9 +83,9 @@ get_header(); ?>
 							<div class="c-select c-input--m">
 								<select name="search[type]">
 									<option value="">- 選択 -</option>
-                                    <?php foreach ($facets->getTypes() as $type): ?>
+									<?php foreach ($facets->getTypes() as $type): ?>
 										<option value="<?php echo $type; ?>" <?php selected($_GET['search']['type'] ?? null, $type); ?>><?php echo $type; ?></option>
-                                    <?php endforeach; ?>
+									<?php endforeach; ?>
 								</select>
 							</div>
 						</div>
@@ -125,48 +125,49 @@ get_header(); ?>
 			<!-- .p-search-backnumber -->
 
 			<?php if ($results = app_handle_conditions_resource_document_search_request()): ?>
-    			<?php foreach ($results as $year => $items): ?>
-				<div class="p-search-backnumber-result__item">
-					<h3 class="c-h3 mb-3"><?php echo $year; ?>年度</h3>
-					<div class="js-scrollable p-table-list-wrap">
-						<table class="p-table-list">
-							<thead>
-								<tr>
-									<th>年（西暦）</th>
-									<th>文書管理番号</th>
-									<th>資料タイトル</th>
-									<th>資料</th>
-								</tr>
-							</thead>
-                            <?php
-                            /**
-                             * @var App_Resource_Document_Search_Result_Item $item
-                             */
-                            foreach ($items as $item): ?>
-								<tbody>
+				<?php foreach ($results as $year => $items): ?>
+					<div class="p-search-backnumber-result__item">
+						<h3 class="c-h3 mb-3"><?php echo $year; ?>年</h3>
+						<div class="js-scrollable p-table-list-wrap">
+							<table class="p-table-list">
+								<thead>
 									<tr>
-										<td><?php echo $year ?>年</td>
-										<td><?php echo $item->getDocumentManageId(); ?></td>
-										<td><?php echo $item->getTitle() ?></td>
-										<td>
-											<ul class="p-dl-btn-list p-dl-btn-list--column">
-                                                <?php if ($url = $item->getDocumentUrl()): ?>
-													<li>
-														<a href="<?php echo $url; ?>" class="p-dl-btn" target="_blank">
-															<i class="fal fa-file-pdf"></i>
-															資料
-															<span><?php $filesize = $item->getDocumentSize() / (1024 * 1024); echo number_format($filesize, 1); ?>MB</span>
-														</a>
-													</li>
-                                                <?php endif; ?>
-											</ul>
-										</td>
+										<th>年（西暦）</th>
+										<th>文書管理番号</th>
+										<th>資料タイトル</th>
+										<th>資料</th>
 									</tr>
-								</tbody>
-                            <?php endforeach; ?>
-						</table>
+								</thead>
+								<?php
+								/**
+								 * @var App_Resource_Document_Search_Result_Item $item
+								 */
+								foreach ($items as $item): ?>
+									<tbody>
+										<tr>
+											<td><?php echo $year ?>年</td>
+											<td><?php echo $item->getDocumentManageId(); ?></td>
+											<td><?php echo $item->getTitle() ?></td>
+											<td>
+												<ul class="p-dl-btn-list p-dl-btn-list--column">
+													<?php if ($url = $item->getDocumentUrl()): ?>
+														<li>
+															<a href="<?php echo $url; ?>" class="p-dl-btn" target="_blank">
+																<i class="fal fa-file-pdf"></i>
+																資料
+																<span><?php $filesize = $item->getDocumentSize() / (1024 * 1024);
+																			echo number_format($filesize, 1); ?>MB</span>
+															</a>
+														</li>
+													<?php endif; ?>
+												</ul>
+											</td>
+										</tr>
+									</tbody>
+								<?php endforeach; ?>
+							</table>
+						</div>
 					</div>
-				</div>
 				<?php endforeach; ?>
 			<?php else: ?>
 				<div class="c-panel c-panel--icegray text-center mb-5">検索結果なし</div>

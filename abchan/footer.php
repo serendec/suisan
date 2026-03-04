@@ -29,6 +29,8 @@
 								<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>about/taisei/">水産資源評価の実施体制と進め方</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>about/references_list/">資源評価のための基礎資料</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>about/yougo/">用語集</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>about/types/">資源評価に係る資料の種類</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>about/movie/">動画で見る資源評価</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -37,7 +39,7 @@
 					<ul>
 						<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>hyouka/">水産資源評価結果</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>gk/">漁海況予報</a></li>
-						<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>kouseidoka/">高精度化事業</a></li>
+						<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>kanrenjigyou/">関連事業</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4">

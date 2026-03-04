@@ -103,6 +103,7 @@
 			<!-- .p-search-backnumber -->
 
 			<?php if ($results = app_handle_resource_assessment_search_request()): ?>
+				<p class="mb-2"><small>※★印のイラストは、女子美術大学の著作物です。</small></p>
 				<div class="p-search-backnumber-result">
     				<?php foreach ($results as $year => $group): ?>
 						<div class="p-search-backnumber-result__item">
@@ -168,6 +169,17 @@
 																</a>
 															</li>
                                                         <?php endif; ?>
+                                                        <?php foreach ($item->getAdditionalDocumentsMeta() as $index => $doc): ?>
+                                                            <?php if (!empty($doc['url'])): ?>
+                                                                <li>
+                                                                    <a href="<?php echo $doc['url']; ?>" class="p-dl-btn" target="_blank">
+                                                                        <i class="fal fa-file-pdf"></i>
+                                                                        <?php echo !empty($doc['title']) ? $doc['title'] : ('その他資料' . ($index + 1)); ?>
+                                                                        <span><?php $filesize = ($doc['size'] ?? 0) / (1024 * 1024); echo number_format($filesize, 1); ?>MB</span>
+                                                                    </a>
+                                                                </li>
+                                                            <?php endif; ?>
+                                                        <?php endforeach; ?>
 													</ul>
 												</td>
 

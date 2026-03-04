@@ -1,0 +1,12 @@
+# Backup files
+*.bak*
+footer.php250716
+header.php250716
+page-documents.php250514
+page-hyouka.php250716
+page-sitemap.php250716
+part-banners.php250512
+part-related-link.php250716
+# OS
+.DS_Store
+Thumbs.db

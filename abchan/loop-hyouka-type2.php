@@ -8,6 +8,7 @@ if(isset($post_keys[get_the_ID()])):
 	//meta_keyをもとに直接目的の行のデータを取得
 	$data_key = $post_keys[get_the_ID()].'_データ';
 	$repeaters = get_field($data_key);
+	if( !is_array( $repeaters ) ) $repeaters = array();
 	?>
 
 	<?php ob_start(); //魚種の表示 ?>
@@ -31,7 +32,7 @@ if(isset($post_keys[get_the_ID()])):
 		<td><?php echo $repeater['系群']; ?></td>
 		<td>
 			<ul class="p-dl-btn-list">
-				<?php foreach($repeater['資料'] as $doc): ?>
+				<?php if( !empty($repeater['資料']) && is_array($repeater['資料']) ): foreach($repeater['資料'] as $doc): ?>
 				<li>
 					<a href="<?php echo $doc['ファイル']['url'] ?>" class="p-dl-btn" target="_blank">
 					<i class="fal fa-file-pdf"></i>
@@ -46,7 +47,7 @@ if(isset($post_keys[get_the_ID()])):
 					?>MB</span>
 					</a>
 				</li>
-				 <?php endforeach; ?>
+				 <?php endforeach; endif; ?>
 			</ul>
 		</td>
 
